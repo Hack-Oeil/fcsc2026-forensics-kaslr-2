@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head lang="de">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Die CTFs von Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Active la coloration syntaxique :
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js non chargé !");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Challenge #611</h3>
+                            <h2 class="section-title">Kernel-Adressen – Ein bisschen Zufall</h2>
+                            <p>
+Sie erhalten RAM-Dumps von drei Rechnern und suchen für jeden von ihnen nach der Adresse des ersten Befehls des Kernels (Funktion _stext).
+<br /><br />
+Das Flag-Format lautet <code>FCSC{phys-virt}</code>, wobei:
+<br /><br />
+- <code>phys</code> die physische Adresse des ersten Befehls des Kernels ist,
+- <code>virt</code> die virtuelle Adresse des ersten Befehls des Kernels im Bereich kernel text mapping ist.
+<br /><br />
+Alle Adressen sind 64-Bit-Werte im Hexadezimalformat mit dem Präfix 0x.
+<br /><br />
+Zum Beispiel: <code>FCSC{0x0123456789abcdef-0xfedcba9876543210}</code>
+<br /><br />
+<em>Hinweis: Während des FCSC war die Anzahl der Versuche für diese Aufgabe auf 10 begrenzt.</em>
+                            </p>
+                            <h4>Zu untersuchende Datei:</h4>
+                            <p>../files/random.mem.xz</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Offizieller Link:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/forensics/fcsc2026-forensics-kaslr-2/">https://hackropole.fr/fr/challenges/forensics/fcsc2026-forensics-kaslr-2/</a>
+                                <br />
+                                Autor: kernx
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Lernen</h3>
+                            <h2 class="section-title">Dokumentation und Videos</h2>
+                            <p class="section-subtitle">
+                                Derzeit keine Dokumentation verfügbar
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Hilfe</h3>
+                            <h2 class="section-title">Ratschläge und Hinweise</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Diskussion
+                                    auf Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Nach oben scrollen" title="Nach oben scrollen"></a>
+    </div>
+</body>
+
+</html>

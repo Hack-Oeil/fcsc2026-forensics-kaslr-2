@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head lang="it">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - I CTF di Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Active la coloration syntaxique :
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js non chargé !");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Challenge #611</h3>
+                            <h2 class="section-title">Indirizzi del kernel - Un po' di casualità</h2>
+                            <p>
+Ricevi dump della memoria RAM di tre macchine e devi trovare l'indirizzo della prima istruzione del kernel (funzione _stext) per ciascuna di esse.
+<br /><br />
+Il formato del flag è <code>FCSC{phys-virt}</code> dove:
+<br /><br />
+- <code>phys</code> è l'indirizzo fisico della prima istruzione del kernel,
+- <code>virt</code> è l'indirizzo virtuale della prima istruzione del kernel nell'area kernel text mapping.
+<br /><br />
+Tutti gli indirizzi sono a 64 bit, in formato esadecimale con prefisso 0x.
+<br /><br />
+Ad esempio: <code>FCSC{0x0123456789abcdef-0xfedcba9876543210}</code>
+<br /><br />
+<em>Nota: Durante l'FCSC, il numero di tentativi era limitato a 10 per questa sfida.</em>
+                            </p>
+                            <h4>File da analizzare:</h4>
+                            <p>../files/random.mem.xz</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Link ufficiale:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/forensics/fcsc2026-forensics-kaslr-2/">https://hackropole.fr/fr/challenges/forensics/fcsc2026-forensics-kaslr-2/</a>
+                                <br />
+                                Autore: kernx
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Apprendimento</h3>
+                            <h2 class="section-title">Documentazione e Video</h2>
+                            <p class="section-subtitle">
+                                Nessuna documentazione al momento
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Aiuto</h3>
+                            <h2 class="section-title">Consigli e suggerimenti</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discussione
+                                    su Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Torna all'inizio della pagina" title="Torna all'inizio della pagina"></a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head lang="ja">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - CyrhadesのCTF</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Active la coloration syntaxique :
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js non chargé !");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>チャレンジ #611</h3>
+                            <h2 class="section-title">カーネルアドレス - 少しのランダム性</h2>
+                            <p>
+3台のマシンのRAMダンプを受け取り、それぞれのマシンにおけるカーネルの最初の命令（_stext関数）のアドレスを特定します。
+<br /><br />
+フラグの形式は <code>FCSC{phys-virt}</code> です：
+<br /><br />
+- <code>phys</code> はカーネルの最初の命令の物理アドレス、
+- <code>virt</code> はカーネルテキストマッピング領域内のカーネルの最初の命令の仮想アドレスです。
+<br /><br />
+アドレスはすべて64ビットで、プレフィックス0xが付いた16進数形式です。
+<br /><br />
+例：<code>FCSC{0x0123456789abcdef-0xfedcba9876543210}</code>
+<br /><br />
+<em>注：FCSC期間中、この問題の試行回数は10回に制限されていました。</em>
+                            </p>
+                            <h4>解析対象ファイル:</h4>
+                            <p>../files/random.mem.xz</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                公式リンク:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/forensics/fcsc2026-forensics-kaslr-2/">https://hackropole.fr/fr/challenges/forensics/fcsc2026-forensics-kaslr-2/</a>
+                                <br />
+                                作成者: kernx
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>学習</h3>
+                            <h2 class="section-title">ドキュメントと動画</h2>
+                            <p class="section-subtitle">
+                                現在ドキュメントはありません
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>ヘルプ</h3>
+                            <h2 class="section-title">ヒントとアドバイス</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discordスレッド</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="ページ上部へ戻る" title="ページ上部へ戻る"></a>
+    </div>
+</body>
+
+</html>
