@@ -1,4 +1,4 @@
-# FCSC 2025 Adresses du noyau - Un peu d'aléa
+# FCSC 2026 Adresses du noyau - Un peu d'aléa
 
 Vous recevez des captures de la mémoire vive sur trois machines, et vous cherchez l’adresse de la première instruction du noyau (fonction _stext) pour chacune d’entre elles.
 
